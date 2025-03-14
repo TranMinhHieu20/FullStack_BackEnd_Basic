@@ -26,6 +26,9 @@
     .tr-hover:hover {
         background-color: #ccc;
     }
+    body a {
+        text-decoration: none;
+    }
 </style>
 
 <body>
@@ -66,7 +69,7 @@
                 <td><%= User.name%></td>
                 <td><%= User.city%></td>
                 <td>
-                    <button style="background-color: greenyellow;">Edit</button>
+                    <button style="background-color: greenyellow;"><a href="/update">Edit</a></button>
                     <button style="background-color: red;">Delete</button>
                 </td>
             </tr>
