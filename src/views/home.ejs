@@ -35,7 +35,7 @@
    
     </div>
     <div class="table-container">
-        <%= JSON.stringify(listUsers) %>
+        
         <div class="title">List Users:</div>
         <table>
             <tr>
@@ -45,35 +45,33 @@
                 <th>City</th>
                 <th>Actions</th>
             </tr>
+        <!-- <%= JSON.stringify(listUsers) %> -->
+        <!-- <% for(var i = 0; i < listUsers.length; i++) { %>
             <tr class="tr-hover">
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
+                <td><%=listUsers[i].id%></td>
+                <td><%=listUsers[i].email%></td>
+                <td><%=listUsers[i].name%></td>
+                <td><%=listUsers[i].city%></td>
                 <td>
                     <button style="background-color: greenyellow;">Edit</button>
                     <button style="background-color: red;">Delete</button>
                 </td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-            </tr>
+        <% } %> -->
+        <!-- forEach -->
+         <% listUsers.forEach(function(User) {%>
             <tr class="tr-hover">
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
+                <td><%= User.id %></td>
+                <td><%= User.email%></td>
+                <td><%= User.name%></td>
+                <td><%= User.city%></td>
+                <td>
+                    <button style="background-color: greenyellow;">Edit</button>
+                    <button style="background-color: red;">Delete</button>
+                </td>
             </tr>
-            <tr class="tr-hover">
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-            </tr>
-                
+            
+         <% }); %>
         </table>
     </div>
   
