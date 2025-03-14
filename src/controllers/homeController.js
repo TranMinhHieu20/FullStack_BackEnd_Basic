@@ -8,29 +8,36 @@ const getABC = (req, res) => {
     res.render("sample.ejs");
 };
 
-const postCreateUser = (req, res) => {
+const postCreateUser = async (req, res) => {
     let email = req.body.email;
     let name = req.body.myname;
     let city = req.body.city;
     // let {email, name , city} = req.body;
-    console.log(">>>req.body: ", email, name, city);
-    res.send("123");
-    console.log(">>>Database connection:", connection);
-    // connection.execute(
+    // console.log(">>>req.body: ", email, name, city);
+    console.log(">>> Chuẩn bị thực hiện truy vấn:");
+    // connection.query(
     //     `INSERT INTO Users (email, name, city)
     //     VALUES(?, ?, ?)`,
     //     [email, name, city],
-    //     function (err, results) {
-    //         // connection.release();
-    //         if (err) {
-    //             console.log(">>> err: ", err);
-    //             res.status(500).send("Loi them user!!");
-    //         } else {
-    //             console.log(">>> results: ", results);
-    //             res.send("create users success!!");
-    //         }
-    //     }
+    //     res.send("create success")
     // );
+    let [results, fields] = await connection.query(
+        `INSERT INTO Users (email, name, city)
+        VALUES(?, ?, ?)`,
+        [email, name, city]
+    );
+    console.log(">> check results", results);
+    res.send("create success");
+    //
+    // connection.query(`SELECT * FROM Users`, function (err, result, fields) {
+    //     console(">>>result: ", result);
+    // });
+    // const [results, fields] = await connection.query(`SELECT * FROM Users`);
+    // console.log(">>>results", results);
 };
 
-module.exports = { getHomePage, getABC, postCreateUser };
+const getCreatePage = (req, res) => {
+    res.render("create.ejs");
+};
+
+module.exports = { getHomePage, getABC, postCreateUser, getCreatePage };
