@@ -59,3 +59,8 @@ body {
     cursor: pointer;
     border: none;
 }
+.dl-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
