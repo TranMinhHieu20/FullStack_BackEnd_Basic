@@ -42,6 +42,7 @@
         <div class="title">List Users:</div>
         <table>
             <tr>
+                <th>STT</th>
                 <th>Id</th>
                 <th>Email</th>
                 <th>Name</th>
@@ -62,8 +63,9 @@
             </tr>
         <% } %> -->
         <!-- forEach -->
-         <% listUsers.forEach(function(User) {%>
+         <% listUsers.forEach(function(User, index) {%>
             <tr class="tr-hover">
+                <td><%= index + 1%></td>
                 <td><%= User.id %></td>
                 <td><%= User.email%></td>
                 <td><%= User.name%></td>
